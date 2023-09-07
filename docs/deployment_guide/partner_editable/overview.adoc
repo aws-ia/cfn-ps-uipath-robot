@@ -1,7 +1,9 @@
 This guide covers the information you need to deploy the {partner-product-name} Partner Solution in the AWS Cloud.
 
 // Fill in the info in <angle brackets> for use on the landing page only: 
-This Amazon Web Services (AWS) Partner Solution deploys [<product name>](<partner's marketing product page>) in the AWS Cloud so that <purpose>. This solution is for <target users> who want to <do what> so that <why>. For more information, refer to the [<product name> documentation](<URL>).
+This Amazon Web Services (AWS) Partner Solution deploys https://docs.uipath.com/robot/docs/introduction[UiPath Robot] in the AWS Cloud. 
+
+UiPath Robot is the agent that runs processes designed in UiPath Studio. A UiPath Robot is split into several components, each being dedicated to a particular automation task. This design allows you to run, identify, and track the work of each component. With UIPath Robots, you can capture data from user interfaces, manipulate applications, and communicate with other systems to perform repetitive business processes. 
 
 // Deploying this solution does not guarantee an organization’s compliance with any laws, certifications, policies, or other regulations. [Uncomment this statement only for solutions that relate to compliance. We'll add the corresponding reference part to the landing page and get legal approval before publishing.]
 
