@@ -1,0 +1,36 @@
+
+.Network configuration
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|VPC CIDR
+(`VPCCIDR`)|`10.0.0.0/16`|CIDR block for the VPC, in the format x.x.0.0/16.|VPC ID
+(`VPCID`)|`**__Requires input__**`|ID of the VPC where the UiPath Robot is created.|Private subnet
+(`PrivateSubnetID`)|`**__Requires input__**`|Private subnet with UiPath Robot.|Public subnet
+(`PublicSubnetID`)|`**__Requires input__**`|Public subnet with bastion host to access UiPath Robot.
+|===
+.Robot VM configuration
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|Instance key pair
+(`KeyPairName`)|`**__Requires input__**`|Key pair used to log in to virtual machine (VM) instances.|Instance type
+(`InstanceType`)|`t2.medium`|EC2 instance type.
+|===
+.UiPath Robot configuration
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|UiPath Robot version.
+(`RobotVersion`)|`20.10.2`|UIPath Robot version to install.|UiPath Robot type (attended or unattended)
+(`RobotType`)|`Attended`|Choose the type of UiPath Robot you want to install (attended or unattended).|Administrator password
+(`AdminPassword`)|`**__Requires input__**`|Windows administrator password for UiPath Robot.|URL of an existing and licensed Orchestrator
+(`OrchestratorURL`)|`**__Requires input__**`|UiPath Orchestrator URL.|UiPath Robot tenant name
+(`OrchestratorTenant`)|`default`|Tenant name where the UiPath Robot is created.|UiPath Orchestrator API username
+(`OrchestratorAPIUser`)|`**__Requires input__**`|UiPath Orchestrator API username. This must have a role with permissions to add and create robots.|UiPath Orchestrator API password
+(`OrchestratorAPIPassword`)|`**__Requires input__**`|UiPath Orchestrator API password.
+|===
+.Quick Start S3 bucket configuration
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|Template-hosting S3 bucket
+(`QSS3BucketName`)|`aws-quickstart`|Name of the S3 bucket for your copy of the Quick Start assets. Keep the default name unless you are customizing the template. Changing the name updates code references to point to a new Quick Start location. This name can include numbers, lowercase letters, uppercase letters, and hyphens, but do not start or end with a hyphen (-). See https://aws-quickstart.github.io/option1.html.|Template folder
+(`QSS3KeyPrefix`)|`quickstart-uipath-robot/`|S3 key prefix that is used to simulate a directory for your copy of the  Quick Start assets. Keep the default prefix unless you are customizing  the template. Changing this prefix updates code references to point to  a new Quick Start location. This prefix can include numbers, lowercase  letters, uppercase letters, hyphens (-), and forward slashes (/).  See https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html  and https://aws-quickstart.github.io/option1.html.
+|===
