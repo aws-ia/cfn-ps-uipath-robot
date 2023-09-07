@@ -1,5 +1,5 @@
 project:
-  name: quickstart-uipath-robot
+  name: cfn-ps-uipath-robot
   parameters:
     QSS3KeyPrefix: "quickstart-uipath-robot/"
     QSS3BucketName: "$[taskcat_autobucket]"
