@@ -1,11 +1,9 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: >-
-  This template creates a security group with Ingress and Egress rules.
-  (qs-1r2g4121q)
+Description: This template creates a security group with Ingress and Egress rules. (qs-1r2g4121q)
 Parameters: {}
 Resources:
   CustomLambdaExecutionRole:
-    Type: 'AWS::IAM::Role'
+    Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
         Version: 2012-10-17
@@ -15,7 +13,7 @@ Resources:
               Service:
                 - lambda.amazonaws.com
             Action:
-              - 'sts:AssumeRole'
+              - sts:AssumeRole
       Path: /
       Policies:
         - PolicyName: root
@@ -24,56 +22,64 @@ Resources:
             Statement:
               - Effect: Allow
                 Action:
-                  - 'storagegateway:*'
+                  - storagegateway:*
                 Resource: '*'
               - Effect: Allow
                 Action:
-                  - 'ec2:DescribeSnapshots'
-                  - 'ec2:DescribeImages'
-                  - 'ec2:DescribeInstanceStatus'
+                  - ec2:DescribeSnapshots
+                  - ec2:DescribeImages
+                  - ec2:DescribeInstanceStatus
                 Resource: '*'
               - Effect: Allow
                 Action:
-                  - 'logs:CreateLogGroup'
-                  - 'logs:CreateLogStream'
-                  - 'logs:PutLogEvents'
-                Resource: 'arn:aws:logs:*:*:*'
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: arn:aws:logs:*:*:*
               - Effect: Allow
                 Action:
-                  - 'acm:DeleteCertificate'
-                  - 'acm:DescribeCertificate'
-                  - 'acm:RequestCertificate'
-                  - 'acm:GetCertificate'
-                  - 'acm:ListCertificates'
-                  - 'acm:ImportCertificate'
-                  - 'acm:RenewCertificate'
+                  - acm:DeleteCertificate
+                  - acm:DescribeCertificate
+                  - acm:RequestCertificate
+                  - acm:GetCertificate
+                  - acm:ListCertificates
+                  - acm:ImportCertificate
+                  - acm:RenewCertificate
                 Resource: '*'
               - Effect: Allow
                 Action:
-                  - 'ssm:DescribeParameters'
-                  - 'ssm:GetParametersByPath'
-                  - 'ssm:GetParameters'
-                  - 'ssm:GetParameter'
-                  - 'ssm:SendCommand'
-                  - 'ssm:GetCommandInvocation'
+                  - ssm:DescribeParameters
+                  - ssm:GetParametersByPath
+                  - ssm:GetParameters
+                  - ssm:GetParameter
+                  - ssm:SendCommand
+                  - ssm:GetCommandInvocation
                 Resource: '*'
               - Effect: Allow
                 Action:
-                  - 'route53:ChangeResourceRecordSets'
+                  - route53:ChangeResourceRecordSets
                 Resource: '*'
               - Effect: Allow
                 Action:
-                  - 'iam:PassRole'
+                  - iam:PassRole
                 Resource: '*'
               - Effect: Allow
                 Action:
-                  - 'xray:PutTraceSegments'
+                  - xray:PutTraceSegments
                 Resource: '*'
+    Metadata:
+      cfn-lint:
+        config:
+          ignore_checks:
+            - EIAMPolicyActionWildcard
+            - EIAMPolicyWildcardResource
+          ignore_reasons:
+            - EIAMPolicyActionWildcard: Intent assumed for initial migration.
+            - EIAMPolicyWildcardResource: Intent assumed for initial migration.
 Outputs:
   CustomLambdaRoleArn:
-    Description: >-
-      ARN for IAM Role to be assumed by Lambda functinos creating Storage
-      Gateway custom resources
-    Value: !GetAtt 
-      - CustomLambdaExecutionRole
-      - Arn
+    Description: ARN for IAM Role to be assumed by Lambda functinos creating Storage Gateway custom resources
+    Value:
+      Fn::GetAtt:
+        - CustomLambdaExecutionRole
+        - Arn
