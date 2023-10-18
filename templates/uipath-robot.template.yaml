@@ -162,7 +162,7 @@ Parameters:
       uppercase letters, and hyphens, but do not start or end with a hyphen (-). 
       See https://aws-quickstart.github.io/option1.html.
     Type: String
-    Default: aws-ia-us-east-1
+    Default: aws-ia
   QSS3BucketRegion:
     Default: us-east-1
     Description: >-
@@ -188,7 +188,7 @@ Parameters:
 Conditions:
   UsingDefaultBucket: !Equals
     - !Ref QSS3BucketName
-    - aws-ia-us-east-1
+    - aws-ia
 Resources:
   LambdaRoleStack:
     Type: 'AWS::CloudFormation::Stack'
