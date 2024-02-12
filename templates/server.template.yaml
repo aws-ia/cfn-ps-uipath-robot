@@ -61,7 +61,7 @@ Parameters:
 Conditions:
   UsingDefaultBucket: !Equals
     - !Ref QSS3BucketName
-    - aws-ia-us-east-1
+    - aws-ia
 Resources:
   RobotIAMRole:
     Type: 'AWS::IAM::Role'
